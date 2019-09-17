@@ -4,6 +4,7 @@ const PLM = require('passport-local-mongoose')
 const userSchema = new Schema(
   {
     type: {
+      type: String,
       enum: ['BUYER', 'SELLER'],
       default: 'BUYER'
     },
