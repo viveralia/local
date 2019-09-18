@@ -1,0 +1,119 @@
+/*****************************/
+/********** NAVBAR ***********/
+/*****************************/
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.25s ease-in-out;
+  border-bottom: 1px solid #eee;
+  div {
+    &:first-child {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      button {
+        span {
+          display: block;
+          width: 1.125rem;
+          height: 3px;
+          background-color: var(--darkText);
+          border-radius: 5px;
+          &:first-child {
+            margin-bottom: 5px;
+          }
+        }
+      }
+      a {
+        margin-left: 1.125rem;
+        font-size: 1.375rem;
+        font-weight: 700;
+        letter-spacing: 0.25px;
+        color: var(--darkText);
+      }
+    }
+    &:last-child {
+      a {
+        &:first-child {
+          margin-right: 0.75rem;
+        }
+      }
+    }
+  }
+  // Transparent navbar styles
+  &.nav-transparent-white {
+    color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    div {
+      button {
+        span {
+          background-color: #fff;
+        }
+      }
+      a {
+        color: #fff;
+      }
+    }
+    div {
+      img {
+        filter: invert(1);
+      }
+    }
+  }
+  // Scrolled nav
+  &.nav-scroll {
+    background-color: #fff;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.06);
+    z-index: 2;
+  }
+}
+
+/*****************************/
+/********** FOOTER ***********/
+/*****************************/
+footer {
+  text-align: center;
+  small {
+    img {
+      height: 0.725rem;
+      padding: 0 0.25rem;
+      opacity: 0.5;
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+/*****************************/
+/******* WHATSAPP CHAT *******/
+/*****************************/
+.chat {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background: var(--darkText);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    filter: invert(1);
+    width: 45%;
+  }
+}
+
+@media (min-width: 992px) {
+  .chat {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 52.5px;
+    height: 52.5px;
+  }
+}

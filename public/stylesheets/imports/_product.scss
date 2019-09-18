@@ -1,0 +1,46 @@
+.product {
+  img {
+    margin-bottom: 1rem;
+    display: block;
+  }
+  h3 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    overflow: hidden;
+    width: 100%;
+    text-overflow: ellipsis;
+  }
+  p {
+    margin-bottom: 0.75rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .product {
+    h3 {
+      font-size: 1.25rem;
+    }
+    p {
+      font-size: 1.125rem;
+    }
+  }
+}
+
+.scroll {
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  a {
+    display: inline-block;
+    min-width: 180px;
+    width: calc(20% - 1.75rem);
+    margin-right: 1rem;
+    &:first-child {
+      margin-left: 1.5rem;
+    }
+    &:last-child {
+      margin-right: 1.5rem;
+    }
+  }
+}

@@ -1,0 +1,115 @@
+.single {
+  margin-top: 60px;
+  .g-1 {
+    grid-gap: 1rem;
+    .heading {
+      a {
+        h2 {
+          color: var(--lightText);
+          font-size: 1rem;
+          margin-bottom: 0.5rem;
+          font-weight: normal;
+        }
+      }
+      h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+      p {
+        font-size: 1.275rem;
+      }
+    }
+    .description {
+      p {
+        line-height: 1.5;
+      }
+    }
+    form {
+      div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        label {
+          margin-right: 2.5rem;
+        }
+      }
+      button {
+        margin-top: 1.5rem;
+        width: 100%;
+        font-size: 1rem;
+      }
+    }
+  }
+  .bio {
+    text-align: center;
+    hr {
+      margin: 4rem 0;
+      &:last-child {
+        border: none;
+      }
+    }
+    img {
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      display: block;
+      margin: 0 auto 2rem auto;
+    }
+    h2 {
+      margin-bottom: 0.725rem;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+  }
+  .upsells {
+    h2 {
+      font-size: 1.125rem;
+      margin-bottom: 0.5rem;
+      font-weight: normal;
+    }
+    background: #f8f8f8;
+    padding: 3rem 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+  }
+}
+
+@media (min-width: 992px) {
+  .single {
+    margin-top: 5rem;
+    .g-1 {
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 6rem;
+      .sticky {
+        .heading {
+          a {
+            h2 {
+              font-size: 1.275rem;
+            }
+          }
+          h1 {
+            font-size: 2rem;
+          }
+          p {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+    .bio {
+      h2 {
+        font-size: 1.75rem;
+      }
+      p {
+        font-size: 1.125rem;
+      }
+    }
+    .upsells {
+      h2 {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}

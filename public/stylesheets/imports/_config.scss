@@ -3,8 +3,8 @@
 /*****************************/
 :root {
   --font: 'Lato', sans-serif;
-  --darkText: #444647;
-  --lightText: #5a5e61;
+  --darkText: #5a5e61;
+  --lightText: #777f85;
 }
 
 /*****************************/
@@ -16,11 +16,129 @@
   box-sizing: border-box;
 }
 
+::selection {
+  color: #fff;
+  background: var(--darkText);
+}
+
 html {
   font-size: 16px;
+}
+
+@media (min-width: 1600px) {
+  html {
+    font-size: 24px;
+  }
 }
 
 body {
   font-family: var(--font);
   color: var(--lightText);
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+h1,
+h2,
+h3,
+h4,
+h4,
+h5 {
+  color: var(--darkText);
+}
+
+button {
+  appearance: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.container {
+  padding: 1rem 1.5rem;
+}
+
+.wrapped {
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  .wrapped {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.btn-container {
+  text-align: center;
+  margin-top: 2.75rem;
+}
+
+.btn {
+  display: inline-block;
+  border-radius: 0.3rem;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  background-color: #fff;
+  color: var(--darkText);
+  padding: 0.8rem 2rem;
+  text-align: center;
+  font-weight: normal;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.06);
+  &.btn-color {
+    background-color: #ff9800;
+    box-shadow: 0 4px 14px 0 rgba(255, 152, 0, 0.5);
+    color: #fff;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+hr {
+  border: 1px solid #eee;
+  margin: 6rem 0;
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/*****************************/
+/************ GRID ***********/
+/*****************************/
+.grid {
+  display: grid;
+  grid-gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.g-1 {
+  grid-template-columns: 1fr;
+  grid-gap: 5rem;
+}
+
+.g-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (min-width: 992px) {
+  .btn-container {
+    text-align: right;
+  }
+  .g-1 {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 9rem;
+  }
+  .g-2 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }

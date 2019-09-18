@@ -1,2 +1,60 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="index">
+  {{!-- Header --}}
+  <header class="container">
+    <h1>Frescura a la puerta de tu casa</h1>
+    <h2>Encuentra desde frutas, verduras, carnes y mucho más; de productores locales, cerca de ti.</h2>
+    <a href="/productos" class="btn">Explorar el catálogo</a>
+  </header>
+  {{!-- Recommendations --}}
+  <section class="recommendations">
+    <div class="container wrapped">
+      <div class="heading">
+        <h2>Recién llegados</h2>
+        <p>Siempre frescos, nunca infrescos</p>
+      </div>
+      <div class="grid g-2">
+        {{#each products as |product|}}
+        {{> productCard product}}
+        {{else}}
+        <p>Aún no hay productos</p>
+        {{/each}}
+      </div>
+      <div class="btn-container">
+        <a href="/productos" class="btn btn-color">Ver todo</a>
+      </div>
+    </div>
+  </section>
+  {{!-- Press --}}
+  <section class="press">
+    <div class="container wrapped">
+      <hr>
+      <div class="grid g-1">
+        <a href="https://techcrunch.com/" target="_blank" rel="noopener nofererrer">
+          <img src="images/press/techcrunch-logo.svg" alt="TechCrunch">
+        </a>
+        <a href="https://www.huffpost.com/" target="_blank" rel="noopener nofererrer">
+          <img src="images/press/huffpost-logo.svg" alt="Huffington Post">
+        </a>
+        <a href="https://www.nytimes.com/" target="_blank" rel="noopener nofererrer">
+          <img src="images/press/nyt-logo.svg" alt="The New York Times">
+        </a>
+      </div>
+      <hr>
+    </div>
+  </section>
+</div>
+
+{{!-- Navbar Color Manipulation on Scroll --}}
+<script>
+  document.querySelector('nav').classList.add('nav-transparent-white')
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav')
+    if (window.scrollY <= 0) {
+      nav.classList.remove('nav-scroll')
+      nav.classList.add('nav-transparent-white')
+    } else {
+      nav.classList.remove('nav-transparent-white')
+      nav.classList.add('nav-scroll')
+    }
+  })
+</script>

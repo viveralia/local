@@ -1,0 +1,39 @@
+.all {
+  margin-top: 61px;
+  padding: 1.5rem 0;
+  .heading {
+    margin-bottom: 1rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  section {
+    margin-bottom: 2rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .heading {
+      margin-bottom: 0.5rem;
+      h2 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+      }
+      & > a {
+        padding-bottom: 0.25rem;
+        color: orange;
+      }
+    }
+    .empty {
+      margin-left: 1.5rem;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .all {
+    h1 {
+      font-size: 1.75rem;
+    }
+  }
+}

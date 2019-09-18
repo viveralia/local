@@ -7,14 +7,51 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
   {{!-- Google Fonts --}}
-  <link href="https://fonts.googleapis.com/css?family=Lato:700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 
 <body>
 
-  {{{body}}}
+  {{!-- Navbar --}}
+  <nav class="container">
+    {{!-- Left --}}
+    <div>
+      {{!-- Burger Menu --}}
+      <button type="button">
+        <span></span>
+        <span></span>
+      </button>
+      <a href="/">sabores</a>
+    </div>
+    {{!-- Right --}}
+    <div>
+      <a href="/perfil">
+        <img src="/images/icons/user.svg" alt="perfil" />
+      </a>
+      <a href="/carrito">
+        <img src="/images/icons/shopping-cart.svg" alt="carrito" />
+      </a>
+    </div>
+  </nav>
 
+  {{!-- Main --}}
+  <main>
+    {{{body}}}
+  </main>
+
+  {{!-- Footer --}}
+  <footer class="container">
+    <small>Made with <img src="/images/icons/heart.svg" alt="amor" /> and lots of <img src="/images/icons/coffee.svg"
+        alt="café" /></small>
+  </footer>
+
+  {{!-- Whatsapp Chat --}}
+  <a href="/" class="chat">
+    <img src="/images/icons/whatsapp.svg" alt="whatsapp" />
+  </a>
+
+  {{!-- Scripts --}}
   <script src="/javascripts/script.js"></script>
 </body>
 

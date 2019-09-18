@@ -1,0 +1,8 @@
+.category {
+  .product {
+    h3 {
+      white-space: nowrap;
+      max-width: calc(100vw / 2 - 2.5rem);
+    }
+  }
+}
