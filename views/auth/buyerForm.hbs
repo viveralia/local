@@ -1,0 +1,67 @@
+<h2>{{title}}</h2>
+
+<form action="{{action}}" method="post">
+ {{#if register}}
+  <p>
+    <label for="">Name</label>
+    <input type="text" name="firstName" id="firstName" placeholder="Name">
+  </p>
+  <p>
+    <label for="">Lastname</label>
+    <input type="text" name="lastName" placeholder="Lastname">
+  </p>
+  <p>
+    <label for="">Email</label>
+    <input type="email" name="email" placeholder="Email">
+  </p>
+  <p>
+    <label for="">Password</label>
+    <input type="password" name="password" placeholder="Password">
+  </p>
+  <p>
+    <label for="">Address</label>
+      <input type="text" name="address" id="address" placeholder="Address">
+  </p>
+  <p>
+    <label for="">City</label>
+    <input type="text" name="city" id="city" placeholder="City">
+  </p>
+  <p>
+    <label for="">State</label>
+      <select name="state" id="state">
+        <option value="CDMX">CDMX</option>
+        <option value="Edo. Mex">Edo. Mex</option>
+        <option value="Puebla">Puebla</option>
+      </select>
+  </p>
+  <p>
+    <label for="">Postal Code</label>
+    <input type="number" name="postalCode" id="postalCode" placeholder="Postal Code">
+  </p>
+  <p>
+    <label for="">Country</label>
+    <input type="text" name="country" id="country" placeholder="Postal Code">
+  </p>
+  <p>
+    <label for="">Region</label>
+      <select name="region" id="region">
+        <option value="north">Norte</option>
+        <option value="south">Sur</option>
+        <option value="center">Centro</option>
+      </select>
+  </p>
+   <input type="submit" value="{{button}}">
+{{else}}
+  <p>
+    <label for="">Email</label>
+    <input type="email" name="email" placeholder="Email">
+  </p>
+  <p>
+    <label for="">Password</label>
+    <input type="password" name="password" placeholder="Password">
+  </p>
+  <input type="submit" value="{{button}}">
+  {{/if}}
+</form>
+
+  

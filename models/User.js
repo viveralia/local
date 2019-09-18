@@ -3,15 +3,18 @@ const PLM = require('passport-local-mongoose')
 
 const userSchema = new Schema(
   {
-    type: {
+    role: {
       type: String,
       enum: ['BUYER', 'SELLER'],
       default: 'BUYER'
     },
     firstName: String,
     lastName: String,
-    email: String,
-    password: String,
+    email: {
+      type: String,
+      unique: true
+    },
+    // password: String,
     location: {
       address: String,
       city: String,
@@ -20,8 +23,8 @@ const userSchema = new Schema(
       country: String
     },
     region: {
-      type: Schema.Types.ObjectId,
-      ref: 'Region'
+      type: String,
+      enum: ['north', 'center', 'south']
     },
     // Mainly for the Seller 👇
     products: {
