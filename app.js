@@ -73,8 +73,8 @@ app.locals.title = 'Express - Generated with IronGenerator'
 
 app.use('/', require('./routes/index'))
 app.use('/', require('./routes/products'))
-app.use('/', require('./routes/auth/seller'))
-app.use('/', require('./routes/auth/buyer'))
-app.use('/', require('./routes/sellerProfile'))
+// app.use('/', require('./routes/auth/seller'))
+// app.use('/', require('./routes/auth/buyer'))
+app.use('/', require('./routes/auth'))
 
 module.exports = app

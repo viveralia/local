@@ -29,7 +29,6 @@ nav {
         }
       }
       a {
-        margin-left: 1.125rem;
         font-size: 1.375rem;
         font-weight: 700;
         letter-spacing: 0.25px;
@@ -77,6 +76,7 @@ nav {
 /*****************************/
 footer {
   text-align: center;
+  margin-top: auto;
   small {
     img {
       height: 0.725rem;
