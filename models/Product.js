@@ -17,8 +17,26 @@ const productSchema = new Schema(
       ref: 'User'
     },
     category: {
-      type: Schema.Types.ObjectId,
-      ref: 'Category'
+      type: String,
+      enum: [
+        'VEGETABLES',
+        'FRUIT',
+        'HERBS',
+        'BEEF',
+        'PORK',
+        'CHICKEN',
+        'TURKEY',
+        'SEAFOOD',
+        'MEAT ALTERNATIVES',
+        'MILK',
+        'MILK ALTERNATIVES',
+        'CREAM',
+        'BUTTER',
+        'CHEESE',
+        'EGGS',
+        'OTHER DAIRY',
+        'OTHER'
+      ]
     }
   },
   {

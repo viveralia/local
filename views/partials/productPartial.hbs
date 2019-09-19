@@ -1,0 +1,21 @@
+<p>Your products</p>
+<br>
+ <h2>{{this.name}}</h2>
+ <br>
+ <h6>
+   {{this.description}}
+   <br>
+   <img src="{{this.image}}" alt="{{this.name}}">
+   <br>
+   {{this.price}} <span></span>
+   {{this.unit}}
+   <br>
+   {{this.stock}}<span></span> {{this.unit}}
+   <br>
+   {{this.category}}
+ </h6>
+  </div>
+    <a href="/edit/{{this._id}}">Edit</a>
+    <a href="/delete/{{this._id}}">Delete</a>
+  </div>
+  <br>
