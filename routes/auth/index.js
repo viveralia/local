@@ -28,7 +28,7 @@ router.post('/vendedor/registro', registerNewSeller)
 /************ BOTH ***********/
 /****************************/
 router.get('/login', showLogInForm)
-router.post('/login', passport.authenticate('local'), loginUser)
+router.post('/login', passport.authenticate('local', { failureRedirect: '/comprador/registro' }), loginUser)
 router.get('/perfil', isLoggedIn('/login'), showUserProfile)
 router.get('/logout', logoutUser)
 

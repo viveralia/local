@@ -1,0 +1,16 @@
+<br>
+<br>
+<br>
+<h1>Todos o uno</h1>
+<br>
+<br>
+<br>
+{{#each products as |product|}}
+  {{> productPartial product}}
+{{else}}
+<p>no tienes producto aún</p>
+{{/each}}
+<a href="/create" class="btn btn-info">
+<p>Create new product</p>
+</a>
+
