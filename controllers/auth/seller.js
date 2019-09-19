@@ -41,7 +41,8 @@ exports.login = (req, res, next) => {
 }
 
 exports.isLoggedin = (req, res, next) => {
-  res.render('auth/sellerProfile', { seller: req.user })
+  console.log(req.user)
+  res.render('auth/sellerProfile', req.user)
 }
 
 exports.logOut = (req, res, next) => {
@@ -56,3 +57,5 @@ exports.loggedin = (req, res, next) => {
     res.redirect('/login')
   }
 }
+
+//manejar subir la foto y eso

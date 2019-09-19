@@ -75,5 +75,6 @@ app.use('/', require('./routes/index'))
 app.use('/', require('./routes/products'))
 app.use('/', require('./routes/auth/seller'))
 app.use('/', require('./routes/auth/buyer'))
+app.use('/', require('./routes/sellerProfile'))
 
 module.exports = app
