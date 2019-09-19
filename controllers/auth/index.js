@@ -97,11 +97,20 @@ exports.loginUser = (req, res) => {
 
 exports.showUserProfile = (req, res) => {
   const currentUser = req.user
-  res.render('auth/profile', currentUser)
+  const config = {
+    isProfile: true,
+    isSeller: currentUser.role === 'SELLER' ? true : false,
+    isBuyer: currentUser.role === 'BUYER' ? true : false
+  }
+  res.render('auth/dashboard', { currentUser, config })
 }
 exports.showUserUpdateForm = (req, res) => {
   const currentUser = req.user
-  res.render('auth/profile-edit', currentUser)
+  const config = {
+    isEdit: true,
+    isSeller: currentUser.role === 'SELLER' ? true : false
+  }
+  res.render('auth/dashboard', { currentUser, config })
 }
 
 exports.logoutUser = (req, res) => {
@@ -112,7 +121,7 @@ exports.logoutUser = (req, res) => {
 exports.updateUser = async (req, res) => {
   try {
     const currentUser = req.user
-    const { firstName, lastName, email, password, address, city, state, postalCode, country, region } = req.body
+    const { firstName, lastName, email, address, city, state, postalCode, country, region, bio } = req.body
     const gravatar = `https://www.gravatar.com/avatar/${md5(email)}?d=identicon&s=200`
     const updatedUser = {
       role: currentUser.role,
@@ -121,6 +130,7 @@ exports.updateUser = async (req, res) => {
       email,
       location: { address, city, state, postalCode, country },
       region,
+      bio,
       profilePic: gravatar
     }
     await User.findByIdAndUpdate(currentUser, updatedUser)

@@ -14,9 +14,13 @@
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+textarea.form-control {
+  height: calc(6em + 0.75rem + 2px);
+}
+
 .form-container {
   border-bottom: 1px solid #eee;
-  min-height: calc(100vh - 51px);
+  min-height: calc(100vh - 148px);
   padding-top: 60px;
   display: flex;
   justify-content: center;
@@ -86,6 +90,7 @@ form {
 
 @media (min-width: 992px) {
   .form-container {
+    min-height: calc(100vh - 64px);
     .card {
       width: 500px;
       min-width: initial;

@@ -22,6 +22,28 @@
     </ul>
   </aside>
   <section class="container">
+    {{!-- Profile View --}}
+    {{#if config.isProfile}}
+    <header>
+      <h1>¡Bienvenido <strong>{{currentUser.firstName}} {{currentUser.lastName}}</strong>!</h1>
+      <img src="{{currentUser.profilePic}}" alt="{{currentUser.firstName}} {{currentUser.lastName}} Gravatar">
+      <hr>
+    </header>
+    {{#if config.isBuyer}}
+    <div>
+      <p>Aún no tienes ningún pedido. ¿Por qué no echas un vistazo a los productos?</p>
+      <a href="/productos" class="btn btn-color">Explorar productos</a>
+    </div>
+    {{/if}}
+    {{#if config.isSeller}}
+    <div>
+      <p>Aún no tienes ningún producto creado. ¿Por qué no creas uno ahora?</p>
+      <a href="/productos" class="btn btn-color">Añadir nuevo producto</a>
+    </div>
+    {{/if}}
+    {{/if}}
+    {{!-- Edit View --}}
+    {{#if config.isEdit}}
     <h1>Mis datos</h1>
     <!-- Form -->
     <form action="/perfil/editar" method="POST">
@@ -30,25 +52,31 @@
         <label for="name">Contacto</label>
         <div class="form-group inline">
           <input type="text" name="firstName" id="firstName" placeholder="Nombre" class="form-control"
-            value="{{firstName}}" required />
+            value="{{currentUser.firstName}}" required />
           <input type="text" name="lastName" id="lastName" placeholder="Apellido" class="form-control"
-            value="{{lastName}}" required />
+            value="{{currentUser.lastName}}" required />
         </div>
         <div class="form-group">
           <input type="email" name="email" id="email" placeholder="Correo electrónico" class="form-control"
-            value="{{email}}" required />
+            value="{{currentUser.email}}" required />
         </div>
+        {{#if config.isSeller}}
+        <div class="form-group">
+          <textarea name="bio" id="bio" cols="30" rows="10" class="form-control"
+            placeholder="Acerca de ti">{{currentUser.bio}}</textarea>
+        </div>
+        {{/if}}
       </section>
       <!-- Default shipping address -->
       <section class="shipping">
         <label for="address">Dirección de envío</label>
         <div class="form-group">
           <input type="text" name="address" id="address" placeholder="Dirección" class="form-control"
-            class="form-control" value="{{location.address}}" required />
+            class="form-control" value="{{currentUser.location.address}}" required />
         </div>
         <div class="form-group inline">
           <input type="text" name="city" id="city" placeholder="Alcaldía/Municipio" class="form-control"
-            value="{{location.city}}" required />
+            value="{{currentUser.location.city}}" required />
           <select name="state" id="state" class="form-control" required>
             <option value="" disabled selected>Estado</option>
             <option value="CDMX">CDMX</option>
@@ -62,7 +90,7 @@
             </option>
           </select>
           <input type="number" name="postalCode" id="postalCode" placeholder="Código Postal" class="form-control"
-            value="{{location.postalCode}}" required />
+            value="{{currentUser.location.postalCode}}" required />
         </div>
         <div class="form-group">
           <select name="region" id="region" class="form-control" required>
@@ -75,6 +103,6 @@
       </section>
       <button type="submit" class="btn btn-color">Actualizar</button>
     </form>
-
+    {{/if}}
   </section>
 </div>

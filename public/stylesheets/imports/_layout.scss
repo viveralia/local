@@ -77,13 +77,49 @@ nav {
 footer {
   text-align: center;
   margin-top: auto;
-  small {
-    img {
-      height: 0.725rem;
-      padding: 0 0.25rem;
-      opacity: 0.5;
-      &:last-child {
-        padding-right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  nav {
+    position: initial;
+    border: none;
+    ul {
+      width: 80%;
+      margin: auto;
+      line-height: 2;
+      li {
+        list-style: none;
+        display: inline-block;
+        margin: 0 0.5rem;
+        opacity: 0.75;
+        &:first-child {
+          margin-left: 0;
+        }
+        &:last-child {
+          margin-right: 0;
+          opacity: 1;
+        }
+        a {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+  div {
+    width: 100%;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    text-align: center;
+    border-top: 1px solid #eee;
+    small {
+      img {
+        height: 0.725rem;
+        padding: 0 0.25rem;
+        opacity: 0.5;
+        &:last-child {
+          padding-right: 0;
+        }
       }
     }
   }
@@ -110,6 +146,21 @@ footer {
 }
 
 @media (min-width: 992px) {
+  footer {
+    flex-wrap: nowrap;
+    text-align: initial;
+    nav {
+      ul {
+        width: 100%;
+      }
+    }
+    div {
+      border: none;
+      padding: 0;
+      margin: 0;
+      text-align: right;
+    }
+  }
   .chat {
     bottom: 1.5rem;
     right: 1.5rem;

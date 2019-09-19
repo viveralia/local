@@ -171,13 +171,42 @@ nav {
 /*****************************/
 footer {
   text-align: center;
-  margin-top: auto; }
-  footer small img {
-    height: 0.725rem;
-    padding: 0 0.25rem;
-    opacity: 0.5; }
-    footer small img:last-child {
-      padding-right: 0; }
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; }
+  footer nav {
+    position: initial;
+    border: none; }
+    footer nav ul {
+      width: 80%;
+      margin: auto;
+      line-height: 2; }
+      footer nav ul li {
+        list-style: none;
+        display: inline-block;
+        margin: 0 0.5rem;
+        opacity: 0.75; }
+        footer nav ul li:first-child {
+          margin-left: 0; }
+        footer nav ul li:last-child {
+          margin-right: 0;
+          opacity: 1; }
+        footer nav ul li a {
+          font-size: 0.9rem; }
+  footer div {
+    width: 100%;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    text-align: center;
+    border-top: 1px solid #eee; }
+    footer div small img {
+      height: 0.725rem;
+      padding: 0 0.25rem;
+      opacity: 0.5; }
+      footer div small img:last-child {
+        padding-right: 0; }
 
 /*****************************/
 /******* WHATSAPP CHAT *******/
@@ -198,6 +227,16 @@ footer {
     width: 45%; }
 
 @media (min-width: 992px) {
+  footer {
+    flex-wrap: nowrap;
+    text-align: initial; }
+    footer nav ul {
+      width: 100%; }
+    footer div {
+      border: none;
+      padding: 0;
+      margin: 0;
+      text-align: right; }
   .chat {
     bottom: 1.5rem;
     right: 1.5rem;
@@ -219,9 +258,12 @@ footer {
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
 
+textarea.form-control {
+  height: calc(6em + 0.75rem + 2px); }
+
 .form-container {
   border-bottom: 1px solid #eee;
-  min-height: calc(100vh - 51px);
+  min-height: calc(100vh - 148px);
   padding-top: 60px;
   display: flex;
   justify-content: center;
@@ -276,19 +318,21 @@ form button {
   margin-top: 1.5rem; }
 
 @media (min-width: 992px) {
-  .form-container .card {
-    width: 500px;
-    min-width: initial; }
-    .form-container .card header .alt {
-      line-height: 1.5; }
-    .form-container .card header h1 {
-      font-size: 1.75rem; }
-    .form-container .card header small {
-      font-size: 1rem; }
-    .form-container .card .contact label small,
-    .form-container .card .shipping label small,
-    .form-container .card .terms label small {
-      font-size: 0.9rem; } }
+  .form-container {
+    min-height: calc(100vh - 64px); }
+    .form-container .card {
+      width: 500px;
+      min-width: initial; }
+      .form-container .card header .alt {
+        line-height: 1.5; }
+      .form-container .card header h1 {
+        font-size: 1.75rem; }
+      .form-container .card header small {
+        font-size: 1rem; }
+      .form-container .card .contact label small,
+      .form-container .card .shipping label small,
+      .form-container .card .terms label small {
+        font-size: 0.9rem; } }
 
 .product img {
   margin-bottom: 1rem;
@@ -488,7 +532,7 @@ form button {
 .dashboard {
   display: grid;
   grid-template-columns: 18% 82%;
-  min-height: calc(100vh - 51px);
+  min-height: calc(100vh - 148px);
   padding-top: 60px;
   border-bottom: 1px solid #eee; }
   .dashboard aside {
@@ -530,6 +574,7 @@ form button {
 
 @media (min-width: 992px) {
   .dashboard {
+    min-height: calc(100vh - 64px);
     grid-template-columns: 20% 80%; }
     .dashboard aside {
       padding: 0 2rem; }
