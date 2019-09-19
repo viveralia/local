@@ -14,7 +14,6 @@ const userSchema = new Schema(
       type: String,
       unique: true
     },
-    // password: String,
     location: {
       address: String,
       city: String,
@@ -24,7 +23,7 @@ const userSchema = new Schema(
     },
     region: {
       type: String,
-      enum: ['north', 'center', 'south']
+      enum: ['NORTH', 'CENTER', 'SOUTH']
     },
     // Mainly for the Seller 👇
     products: {
