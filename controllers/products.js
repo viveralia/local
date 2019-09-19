@@ -11,3 +11,7 @@ exports.showSingleCategoryProd = (req, res) => {
 exports.showSingleProduct = (req, res) => {
   res.render('products/single')
 }
+
+exports.showNewProductForm = (req, res) => {
+  res.render('products/new')
+}

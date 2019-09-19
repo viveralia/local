@@ -1,0 +1,67 @@
+<div class="form-container">
+  <div class="container">
+    <div class="card">
+      <header>
+        <h1>Nuevo producto</h1>
+      </header>
+      <form action="/producto/nuevo" method="POST">
+        <!-- Contact Information -->
+        <section class="contact">
+          <label for="name">Información de contacto</label>
+          <div class="form-group inline">
+            <input type="text" name="firstName" id="firstName" placeholder="Nombre" class="form-control" required />
+            <input type="text" name="lastName" id="lastName" placeholder="Apellido" class="form-control" required />
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" id="email" placeholder="Correo electrónico" class="form-control"
+              required />
+          </div>
+          <div class="form-group">
+            <input type="password" name="password" id="password" placeholder="Contraseña" class="form-control"
+              required />
+          </div>
+        </section>
+        <!-- Default shipping address -->
+        <section class="shipping">
+          <label for="address">{{addressHeading}}</label>
+          <div class="form-group">
+            <input type="text" name="address" id="address" placeholder="Dirección" class="form-control"
+              class="form-control" required />
+          </div>
+          <div class="form-group inline">
+            <input type="text" name="city" id="city" placeholder="Alcaldía/Municipio" class="form-control" required />
+            <select name="state" id="state" class="form-control" required>
+              <option value="" disabled selected>Estado</option>
+              <option value="CDMX">CDMX</option>
+              <option value="Edo. Mex">Estado de México</option>
+            </select>
+          </div>
+          <div class="form-group inline">
+            <select name="country" id="country" class="form-control" required>
+              <option value="" disabled>País</option>
+              <option value="Mexico" selected><span role="img" aria-label="Bandera de México">🇲🇽</span>México</option>
+            </select>
+            <input type="number" name="postalCode" id="postalCode" placeholder="Código Postal" class="form-control"
+              required />
+          </div>
+          <div class="form-group">
+            <select name="region" id="region" class="form-control" required>
+              <option value="" disabled selected>Región</option>
+              <option value="NORTH">Área Metropolitana Norte</option>
+              <option value="CENTER">Área Metropolitana Centro</option>
+              <option value="SOUTH">Área Metropolitana Sur</option>
+            </select>
+          </div>
+        </section>
+        <button type="submit" class="btn btn-color">Crear</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Changes the nav backgorund to white on load -->
+<script>
+  window.onload = () => {
+    document.querySelector('nav').style.backgroundColor = 'white'
+  }
+</script>

@@ -53,9 +53,11 @@
         <li>
           <a href="mailto:soporte@local.mx">Ayuda</a>
         </li>
+        {{#unless currentUser}}
         <li>
           <a href="/vendedor/registro">Vende con nosotros</a>
         </li>
+        {{/unless}}
       </ul>
     </nav>
     <div>
