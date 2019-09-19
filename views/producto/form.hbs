@@ -19,7 +19,8 @@
   <input type="text" name="description" id="description" 
   {{#if options.edit}} value="{{placeToEdit.description}}" {{/if}}>
   <br>
-  {{!-- image --}}
+  <label for="image">Photo</label>
+  <input type="file" name="image">
   <br>
   <label for="price">Price</label>
   <input type="Number" name="price" id="price" 
