@@ -19,8 +19,8 @@ exports.showNewProductForm = (req, res) => {
 
 exports.createNewProduct = async (req, res) => {
   try {
-    const { name, description, image, price, unit, stock, category } = req.body
-    console.log(req.body)
+    const { name, description, price, unit, stock, category } = req.body
+    const { url: image } = req.file
     const newProduct = {
       name,
       description,
@@ -31,7 +31,7 @@ exports.createNewProduct = async (req, res) => {
       category
     }
     await Product.create(newProduct)
-    res.redirect('/all')
+    res.redirect('/all', 'image')
   } catch (error) {
     console.log(error)
   }
@@ -51,8 +51,10 @@ exports.showEditProductForm = async (req, res) => {
 
 exports.updateProduct = async (req, res) => {
   try {
-    const { productId } = req.params
-    const { name, description, image, price, unit, stock, category } = req.body
+    const { name, description, price, unit, stock, category } = req.body
+    const { url: image } = req.file
+    console.log(req.file)
+    console.log(req.body)
     const updatedProduct = {
       name,
       description,
@@ -63,7 +65,7 @@ exports.updateProduct = async (req, res) => {
       category
     }
     await Product.findByIdAndUpdate(productId, updatedProduct)
-    res.redirect('/all')
+    res.redirect('/all', 'image')
   } catch (error) {
     console.log(error)
   }
