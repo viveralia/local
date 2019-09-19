@@ -45,17 +45,6 @@
         color: orange;
       }
     }
-    .contact,
-    .shipping {
-      text-align: left;
-      margin-bottom: 2rem;
-      label {
-        font-size: 0.875rem;
-      }
-    }
-    .shipping {
-      margin-bottom: 1.5rem;
-    }
     .terms {
       display: flex;
       justify-content: center;
@@ -64,20 +53,34 @@
         margin-right: 1rem;
       }
     }
-    .form-group {
-      margin: 0.625rem 0;
-      &.inline {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 0.5rem;
-      }
-      input {
-        font-size: 0.925rem;
-      }
+  }
+}
+
+form {
+  .contact,
+  .shipping {
+    text-align: left;
+    margin-bottom: 2rem;
+    label {
+      font-size: 0.875rem;
     }
-    button {
-      margin-top: 1.5rem;
+  }
+  .shipping {
+    margin-bottom: 1.5rem;
+  }
+  .form-group {
+    margin: 0.625rem 0;
+    &.inline {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 0.5rem;
     }
+    input {
+      font-size: 0.925rem;
+    }
+  }
+  button {
+    margin-top: 1.5rem;
   }
 }
 

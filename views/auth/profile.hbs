@@ -1,3 +1,35 @@
-<div class="profile">
-  <h1>¡Hola {{firstName}} {{lastName}}!</h1>
+<div class="dashboard">
+  <aside>
+    <ul>
+      <li>
+        <a href="/perfil">
+          <img src="/images/icons/user.svg" alt="perfil" />
+          <span>Perfil</span>
+        </a>
+      </li>
+      <li>
+        <a href="/perfil/editar">
+          <img src="/images/icons/edit.svg" alt="editar" />
+          <span>Editar perfil</span>
+        </a>
+      </li>
+      <li>
+        <a href="/salir">
+          <img src="/images/icons/log-out.svg" alt="perfil" />
+          <span>Cerrar sesión</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+  <section class="container">
+    <header>
+      <h1>¡Bienvenido <strong>{{firstName}} {{lastName}}</strong>!</h1>
+      <img src="{{profilePic}}" alt="{{firstName}} {{lastName}} Gravatar">
+      <hr>
+    </header>
+    <div>
+      <p>Aún no tienes ningún pedido. ¿Por qué no echas un vistazo a los productos?</p>
+      <a href="/productos" class="btn btn-color">Explorar productos</a>
+    </div>
+  </section>
 </div>

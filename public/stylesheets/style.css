@@ -245,31 +245,35 @@ footer {
         margin-bottom: 0.375rem; }
       .form-container .card header a {
         color: orange; }
-    .form-container .card .contact,
-    .form-container .card .shipping {
-      text-align: left;
-      margin-bottom: 2rem; }
-      .form-container .card .contact label,
-      .form-container .card .shipping label {
-        font-size: 0.875rem; }
-    .form-container .card .shipping {
-      margin-bottom: 1.5rem; }
     .form-container .card .terms {
       display: flex;
       justify-content: center;
       align-items: center; }
       .form-container .card .terms input {
         margin-right: 1rem; }
-    .form-container .card .form-group {
-      margin: 0.625rem 0; }
-      .form-container .card .form-group.inline {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 0.5rem; }
-      .form-container .card .form-group input {
-        font-size: 0.925rem; }
-    .form-container .card button {
-      margin-top: 1.5rem; }
+
+form .contact,
+form .shipping {
+  text-align: left;
+  margin-bottom: 2rem; }
+  form .contact label,
+  form .shipping label {
+    font-size: 0.875rem; }
+
+form .shipping {
+  margin-bottom: 1.5rem; }
+
+form .form-group {
+  margin: 0.625rem 0; }
+  form .form-group.inline {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.5rem; }
+  form .form-group input {
+    font-size: 0.925rem; }
+
+form button {
+  margin-top: 1.5rem; }
 
 @media (min-width: 992px) {
   .form-container .card {
@@ -480,5 +484,74 @@ footer {
       font-size: 1.125rem; }
     .single .upsells h2 {
       font-size: 1.25rem; } }
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 18% 82%;
+  min-height: calc(100vh - 51px);
+  padding-top: 60px;
+  border-bottom: 1px solid #eee; }
+  .dashboard aside {
+    background: #f7f7f7;
+    text-align: center;
+    border-right: 1px solid #eee; }
+    .dashboard aside ul li {
+      list-style: none;
+      margin: 2rem 0; }
+      .dashboard aside ul li a img {
+        opacity: 0.625; }
+      .dashboard aside ul li a span {
+        display: none; }
+  .dashboard .container {
+    padding: 2rem 1.5rem; }
+    .dashboard .container header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2.5rem; }
+      .dashboard .container header h1 {
+        margin-right: 2.5rem;
+        font-size: 1.175rem;
+        line-height: 1.25;
+        font-weight: normal; }
+      .dashboard .container header img {
+        border-radius: 50%;
+        width: 70px;
+        height: 70px; }
+    .dashboard .container div {
+      line-height: 1.5; }
+      .dashboard .container div p {
+        margin-bottom: 1.5rem; }
+    .dashboard .container > h1 {
+      font-size: 1.175rem;
+      margin-bottom: 1.5rem; }
+    .dashboard .container form button {
+      margin-top: 0; }
+
+@media (min-width: 992px) {
+  .dashboard {
+    grid-template-columns: 20% 80%; }
+    .dashboard aside {
+      padding: 0 2rem; }
+      .dashboard aside ul li a {
+        display: flex;
+        align-items: center; }
+        .dashboard aside ul li a span {
+          display: block;
+          margin-left: 1rem; }
+    .dashboard > .container {
+      margin: 0 2rem; }
+      .dashboard > .container > h1 {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem; }
+      .dashboard > .container header {
+        max-width: 350px; }
+        .dashboard > .container header h1 {
+          font-size: 1.75rem;
+          line-height: 1.5; }
+      .dashboard > .container div {
+        max-width: 350px; }
+        .dashboard > .container div p {
+          font-size: 1.125rem; } }
 
 /*# sourceMappingURL=style.css.map */

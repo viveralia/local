@@ -9,7 +9,9 @@ const {
   showLogInForm,
   loginUser,
   logoutUser,
-  showUserProfile
+  showUserProfile,
+  showUserUpdateForm,
+  updateUser
 } = require('../../controllers/auth')
 
 /*****************************/
@@ -29,7 +31,10 @@ router.post('/vendedor/registro', registerNewSeller)
 /****************************/
 router.get('/login', showLogInForm)
 router.post('/login', passport.authenticate('local'), loginUser)
+router.get('/salir', logoutUser)
+// Protected routes
 router.get('/perfil', isLoggedIn('/login'), showUserProfile)
-router.get('/logout', logoutUser)
+router.get('/perfil/editar', isLoggedIn('/login'), showUserUpdateForm)
+router.post('/perfil/editar', isLoggedIn('/login'), updateUser)
 
 module.exports = router

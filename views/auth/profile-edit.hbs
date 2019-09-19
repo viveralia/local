@@ -1,0 +1,80 @@
+<div class="dashboard">
+  <aside>
+    <ul>
+      <li>
+        <a href="/perfil">
+          <img src="/images/icons/user.svg" alt="perfil" />
+          <span>Perfil</span>
+        </a>
+      </li>
+      <li>
+        <a href="/perfil/editar">
+          <img src="/images/icons/edit.svg" alt="editar" />
+          <span>Editar perfil</span>
+        </a>
+      </li>
+      <li>
+        <a href="/salir">
+          <img src="/images/icons/log-out.svg" alt="perfil" />
+          <span>Cerrar sesión</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+  <section class="container">
+    <h1>Mis datos</h1>
+    <!-- Form -->
+    <form action="/perfil/editar" method="POST">
+      <!-- Contact Information -->
+      <section class="contact">
+        <label for="name">Contacto</label>
+        <div class="form-group inline">
+          <input type="text" name="firstName" id="firstName" placeholder="Nombre" class="form-control"
+            value="{{firstName}}" required />
+          <input type="text" name="lastName" id="lastName" placeholder="Apellido" class="form-control"
+            value="{{lastName}}" required />
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" id="email" placeholder="Correo electrónico" class="form-control"
+            value="{{email}}" required />
+        </div>
+      </section>
+      <!-- Default shipping address -->
+      <section class="shipping">
+        <label for="address">Dirección de envío</label>
+        <div class="form-group">
+          <input type="text" name="address" id="address" placeholder="Dirección" class="form-control"
+            class="form-control" value="{{location.address}}" required />
+        </div>
+        <div class="form-group inline">
+          <input type="text" name="city" id="city" placeholder="Alcaldía/Municipio" class="form-control"
+            value="{{location.city}}" required />
+          <select name="state" id="state" class="form-control" required>
+            <option value="" disabled selected>Estado</option>
+            <option value="CDMX">CDMX</option>
+            <option value="Edo. Mex">Estado de México</option>
+          </select>
+        </div>
+        <div class="form-group inline">
+          <select name="country" id="country" class="form-control" required>
+            <option value="" disabled>País</option>
+            <option value="Mexico" selected><span role="img" aria-label="Bandera de México">🇲🇽</span>México
+            </option>
+          </select>
+          <input type="number" name="postalCode" id="postalCode" placeholder="Código Postal" class="form-control"
+            value="{{location.postalCode}}" required />
+        </div>
+        <div class="form-group">
+          <select name="region" id="region" class="form-control" required>
+            <option value="" disabled selected>Región</option>
+            <option value="NORTH">Área Metropolitana Norte</option>
+            <option value="CENTER">Área Metropolitana Centro</option>
+            <option value="SOUTH">Área Metropolitana Sur</option>
+          </select>
+        </div>
+      </section>
+      <button type="submit" class="btn btn-color">Actualizar</button>
+    </form>
+
+  </section>
+</div>

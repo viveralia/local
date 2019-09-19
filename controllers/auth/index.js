@@ -1,4 +1,5 @@
 const User = require('../../models/User')
+const md5 = require('md5') // Hashes the email in md5 format for Gravatar (profile pic)
 
 /*****************************/
 /*********** BUYER ***********/
@@ -17,9 +18,18 @@ exports.showBuyerForm = (req, res, next) => {
 
 exports.registerNewBuyer = async (req, res, next) => {
   const { firstName, lastName, email, password, address, city, state, postalCode, country, region } = req.body
+  const gravatar = `https://www.gravatar.com/avatar/${md5(email)}?d=identicon&s=200`
   try {
     await User.register(
-      { role: 'BUYER', firstName, lastName, email, location: { address, city, state, postalCode, country }, region },
+      {
+        role: 'BUYER',
+        firstName,
+        lastName,
+        email,
+        location: { address, city, state, postalCode, country },
+        region,
+        profilePic: gravatar
+      },
       password
     )
     res.redirect('/login')
@@ -46,9 +56,18 @@ exports.showSellerForm = (req, res, next) => {
 
 exports.registerNewSeller = async (req, res, next) => {
   const { firstName, lastName, email, password, address, city, state, postalCode, country, region } = req.body
+  const gravatar = `https://www.gravatar.com/avatar/${md5(email)}?d=identicon&s=200`
   try {
     await User.register(
-      { role: 'SELLER', firstName, lastName, email, location: { address, city, state, postalCode, country }, region },
+      {
+        role: 'SELLER',
+        firstName,
+        lastName,
+        email,
+        location: { address, city, state, postalCode, country },
+        region,
+        profilePic: gravatar
+      },
       password
     )
     res.redirect('/login')
@@ -80,8 +99,33 @@ exports.showUserProfile = (req, res) => {
   const currentUser = req.user
   res.render('auth/profile', currentUser)
 }
+exports.showUserUpdateForm = (req, res) => {
+  const currentUser = req.user
+  res.render('auth/profile-edit', currentUser)
+}
 
 exports.logoutUser = (req, res) => {
   req.logout()
   res.redirect('/login')
+}
+
+exports.updateUser = async (req, res) => {
+  try {
+    const currentUser = req.user
+    const { firstName, lastName, email, password, address, city, state, postalCode, country, region } = req.body
+    const gravatar = `https://www.gravatar.com/avatar/${md5(email)}?d=identicon&s=200`
+    const updatedUser = {
+      role: currentUser.role,
+      firstName,
+      lastName,
+      email,
+      location: { address, city, state, postalCode, country },
+      region,
+      profilePic: gravatar
+    }
+    await User.findByIdAndUpdate(currentUser, updatedUser)
+    res.redirect('/perfil')
+  } catch (e) {
+    console.log(e)
+  }
 }
