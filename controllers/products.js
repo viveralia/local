@@ -27,10 +27,11 @@ exports.showNewProductForm = (req, res) => {
 exports.createNewProduct = async (req, res) => {
   try {
     const { name, description, price, unit, stock, category } = req.body
-    // const { url: image } = req.file
+    const { url: image } = req.file
     const newProduct = {
       name,
       description,
+      image,
       price,
       unit,
       stock,
