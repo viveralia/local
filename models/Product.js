@@ -12,31 +12,9 @@ const productSchema = new Schema(
     price: Number,
     unit: String,
     stock: Number,
-    owner: {
-      type: Schema.Types.ObjectId,
-      ref: 'User'
-    },
     category: {
       type: String,
-      enum: [
-        'VEGETABLES',
-        'FRUIT',
-        'HERBS',
-        'BEEF',
-        'PORK',
-        'CHICKEN',
-        'TURKEY',
-        'SEAFOOD',
-        'MEAT ALTERNATIVES',
-        'MILK',
-        'MILK ALTERNATIVES',
-        'CREAM',
-        'BUTTER',
-        'CHEESE',
-        'EGGS',
-        'OTHER DAIRY',
-        'OTHER'
-      ]
+      enum: ['frutas', 'vegetales', 'hierbas', 'carnes', 'mariscos', 'lacteos', 'otros']
     }
   },
   {

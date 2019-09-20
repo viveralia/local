@@ -1,4 +1,5 @@
 .product {
+  margin-bottom: 1rem;
   img {
     margin-bottom: 1rem;
     display: block;
@@ -12,6 +13,16 @@
   }
   p {
     margin-bottom: 0.75rem;
+  }
+  .flex-start {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    a {
+      &:first-child {
+        margin-right: 0.5rem;
+      }
+    }
   }
 }
 

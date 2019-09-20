@@ -8,8 +8,6 @@ const hbs = require('hbs')
 const mongoose = require('mongoose')
 const logger = require('morgan')
 const path = require('path')
-// Handlebar helper
-hbs.registerHelper('equal', require('handlebars-helper-equal'))
 
 /********************************/
 /********* PP IMPORTS **********/

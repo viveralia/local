@@ -17,11 +17,6 @@
   <nav class="container">
     {{!-- Left --}}
     <div>
-      {{!-- Burger Menu --}}
-      {{!-- <button type="button">
-        <span></span>
-        <span></span>
-      </button> --}}
       <a href="/">local</a>
     </div>
     {{!-- Right --}}
@@ -54,7 +49,7 @@
           <a href="mailto:soporte@local.mx">Ayuda</a>
         </li>
         {{#unless currentUser}}
-        <li>
+        <li class="sign-in">
           <a href="/vendedor/registro">Vende con nosotros</a>
         </li>
         {{/unless}}

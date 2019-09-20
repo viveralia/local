@@ -95,20 +95,28 @@ exports.loginUser = (req, res) => {
   res.redirect('/perfil')
 }
 
-exports.showUserProfile = (req, res) => {
+exports.showUserProfile = async (req, res) => {
   const currentUser = req.user
+  const user = await User.findById(currentUser._id).populate('products')
+  const products = user.products
+
   const config = {
     isProfile: true,
-    isSeller: currentUser.role === 'SELLER' ? true : false,
-    isBuyer: currentUser.role === 'BUYER' ? true : false
+    isSeller: currentUser.role === 'SELLER',
+    isBuyer: currentUser.role === 'BUYER'
   }
-  res.render('auth/dashboard', { currentUser, config })
+  res.render('auth/dashboard', { currentUser, config, products })
 }
 exports.showUserUpdateForm = (req, res) => {
   const currentUser = req.user
   const config = {
     isEdit: true,
-    isSeller: currentUser.role === 'SELLER' ? true : false
+    isSeller: currentUser.role === 'SELLER',
+    isMexicoCity: currentUser.location.state === 'CDMX',
+    isMexicoState: currentUser.location.state === 'Edo. Mex',
+    isNorth: currentUser.location.region === 'NORTH',
+    isCenter: currentUser.location.region === 'CENTER',
+    isSouth: currentUser.location.region === 'SOUTH'
   }
   res.render('auth/dashboard', { currentUser, config })
 }

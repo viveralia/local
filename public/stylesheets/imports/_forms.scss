@@ -61,6 +61,27 @@ textarea.form-control {
 }
 
 form {
+  .g-2 {
+    grid-template-columns: 1fr;
+  }
+  .img-upload {
+    position: relative;
+    img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+    }
+    label {
+      font-size: 3rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    input {
+      display: none;
+    }
+  }
   .contact,
   .shipping {
     text-align: left;
@@ -89,6 +110,11 @@ form {
 }
 
 @media (min-width: 992px) {
+  form {
+    .g-2 {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
   .form-container {
     min-height: calc(100vh - 64px);
     .card {

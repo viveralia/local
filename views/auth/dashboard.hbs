@@ -36,11 +36,21 @@
     </div>
     {{/if}}
     {{#if config.isSeller}}
-    <div>
-      <p>Aún no tienes ningún producto creado. ¿Por qué no creas uno ahora?</p>
-      <a href="/producto/nuevo" class="btn btn-color">Añadir nuevo producto</a>
+
+    <div class="heading">
+      <h2>Tus productos</h2>
     </div>
+    <div {{#if products}}class="grid" {{/if}}>
+      {{#each products as |product|}}
+      {{> productCrud product}}
+      {{else}}
+      <p>Aún no tienes ningún producto creado. ¿Por qué no creas uno ahora?</p>
+      {{/each}}
+    </div>
+    <a href="/producto/nuevo" class="btn btn-color">Añadir nuevo producto</a>
     {{/if}}
+
+
     {{/if}}
     {{!-- Edit View --}}
     {{#if config.isEdit}}
@@ -63,7 +73,7 @@
         {{#if config.isSeller}}
         <div class="form-group">
           <textarea name="bio" id="bio" cols="30" rows="10" class="form-control"
-            placeholder="Acerca de ti">{{currentUser.bio}}</textarea>
+            placeholder="Acerca de ti (los compradores podrán ver tu historia)">{{currentUser.bio}}</textarea>
         </div>
         {{/if}}
       </section>
@@ -78,9 +88,9 @@
           <input type="text" name="city" id="city" placeholder="Alcaldía/Municipio" class="form-control"
             value="{{currentUser.location.city}}" required />
           <select name="state" id="state" class="form-control" required>
-            <option value="" disabled selected>Estado</option>
-            <option value="CDMX">CDMX</option>
-            <option value="Edo. Mex">Estado de México</option>
+            <option value="" disabled>Estado</option>
+            <option value="CDMX" {{#if config.isMexicoCity}}selected{{/if}}>CDMX</option>
+            <option value="Edo. Mex" {{#if config.isMexicoState}}selected{{/if}}>Estado de México</option>
           </select>
         </div>
         <div class="form-group inline">
@@ -94,10 +104,10 @@
         </div>
         <div class="form-group">
           <select name="region" id="region" class="form-control" required>
-            <option value="" disabled selected>Región</option>
-            <option value="NORTH">Área Metropolitana Norte</option>
-            <option value="CENTER">Área Metropolitana Centro</option>
-            <option value="SOUTH">Área Metropolitana Sur</option>
+            <option value="" disabled>Región</option>
+            <option value="NORTH" {{#if config.isNorth}}selected{{/if}}>Área Metropolitana Norte</option>
+            <option value="CENTER" {{#if config.isCenter}}selected{{/if}}>Área Metropolitana Centro</option>
+            <option value="SOUTH" {{#if config.isSouth}}selected{{/if}}>Área Metropolitana Sur</option>
           </select>
         </div>
       </section>

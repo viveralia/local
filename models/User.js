@@ -26,10 +26,12 @@ const userSchema = new Schema(
       enum: ['NORTH', 'CENTER', 'SOUTH']
     },
     // Mainly for the Seller 👇
-    products: {
-      type: [Schema.Types.ObjectId],
-      ref: 'Product'
-    },
+    products: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Product'
+      }
+    ],
     profilePic: String,
     bio: String
   },

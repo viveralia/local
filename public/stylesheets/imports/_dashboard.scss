@@ -4,6 +4,16 @@
   min-height: calc(100vh - 148px);
   padding-top: 60px;
   border-bottom: 1px solid #eee;
+  .heading {
+    margin-bottom: 1rem;
+    h2 {
+      font-size: 1.25rem;
+    }
+  }
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+  }
   aside {
     background: #f7f7f7;
     text-align: center;
@@ -64,6 +74,16 @@
   .dashboard {
     min-height: calc(100vh - 64px);
     grid-template-columns: 20% 80%;
+    .heading {
+      margin-bottom: 2rem;
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+    .grid {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      max-width: 100% !important;
+    }
     aside {
       padding: 0 2rem;
       ul {
