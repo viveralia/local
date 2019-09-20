@@ -1,4 +1,5 @@
 const Product = require('../models/Product')
+
 exports.showAllProducts = async (req, res) => {
   try {
     const products = await Product.find()
@@ -19,8 +20,8 @@ exports.showNewProductForm = (req, res) => {
 
 exports.createNewProduct = async (req, res) => {
   try {
-    const { name, description, image, price, unit, stock, category } = req.body
-    console.log(req.body)
+    const { name, description, price, unit, stock, category } = req.body
+    const { url: image } = req.file
     const newProduct = {
       name,
       description,
@@ -30,6 +31,7 @@ exports.createNewProduct = async (req, res) => {
       stock,
       category
     }
+
     await Product.create(newProduct)
     res.redirect('/all')
   } catch (error) {
@@ -39,6 +41,7 @@ exports.createNewProduct = async (req, res) => {
 
 exports.showEditProductForm = async (req, res) => {
   const { productId } = req.params
+  const product = await Product.findById(productId)
   const options = {
     title: 'Edit',
     action: `/product/edit/${productId}`,
@@ -46,23 +49,38 @@ exports.showEditProductForm = async (req, res) => {
     edit: true
   }
   const productToEdit = await Product.findById(productId)
-  res.render('producto/form', { productToEdit, options })
+  res.render('producto/form', { productToEdit, options, product })
 }
 
 exports.updateProduct = async (req, res) => {
+  const { productId } = req.params
+  const product = await Product.findById(productId)
   try {
-    const { productId } = req.params
-    const { name, description, image, price, unit, stock, category } = req.body
-    const updatedProduct = {
-      name,
-      description,
-      image,
-      price,
-      unit,
-      stock,
-      category
+    const { name, description, price, unit, stock, category } = req.body
+
+    if (!req.file) {
+      let updatedProduct = {
+        name,
+        description,
+        price,
+        unit,
+        stock,
+        category
+      }
+      await Product.findByIdAndUpdate(productId, updatedProduct)
+    } else {
+      const { url: image } = req.file
+      let updatedProduct = {
+        name,
+        description,
+        image,
+        price,
+        unit,
+        stock,
+        category
+      }
+      await Product.findByIdAndUpdate(productId, updatedProduct)
     }
-    await Product.findByIdAndUpdate(productId, updatedProduct)
     res.redirect('/all')
   } catch (error) {
     console.log(error)

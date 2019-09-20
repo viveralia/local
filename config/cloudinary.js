@@ -12,7 +12,7 @@ let storage = cloudinaryStorage({
   cloudinary,
   folder: 'project-2',
   allowedFormats: ['jpg', 'png'],
-  filename: (req, res, cb) => {
+  filename: (req, file, cb) => {
     cb(null, file.originalname)
   }
 })

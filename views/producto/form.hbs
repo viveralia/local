@@ -10,7 +10,7 @@
 </h1> 
 <br>
 <br>
-<form action="{{options.action}}" method="POST">
+<form action="{{options.action}}" method="POST" enctype="multipart/form-data">
   <label for="name">Name</label>
   <input type="text" name="name" id="name" 
   {{#if options.edit}} value="{{placeToEdit.name}}" {{/if}}>
@@ -20,7 +20,7 @@
   {{#if options.edit}} value="{{placeToEdit.description}}" {{/if}}>
   <br>
   <label for="image">Photo</label>
-  <input type="file" name="image">
+  <input type="file" name="image" id="image">
   <br>
   <label for="price">Price</label>
   <input type="Number" name="price" id="price" 
