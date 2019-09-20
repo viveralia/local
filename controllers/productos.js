@@ -1,3 +1,5 @@
+// IMANOL
+
 const Product = require('../models/Product')
 
 exports.showAllProducts = async (req, res) => {
