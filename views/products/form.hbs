@@ -2,51 +2,55 @@
   <div class="container">
     <div class="card">
       <header>
-        <h1>{{config.title}}</h1>
+        <h1>{{config.title}} <span>{{#if config.isEdit}}{{productToEdit.name}}{{/if}}</span></h1>
       </header>
       <form action="{{config.action}}" method="POST" enctype="multipart/form-data">
         <div class="grid g-2">
           <!-- Left -->
           <div class="img-upload">
-            <img id="uploadPreview" />
+            <img id="uploadPreview" {{#if config.isEdit}}src="{{productToEdit.image}}" {{/if}} />
             <label for="uploadImage">+</label>
             <input id="uploadImage" type="file" name="image" onchange="PreviewImage();" />
           </div>
           <!-- Right -->
           <div>
             <div class="form-group">
-              <input type="text" name="name" class="form-control" placeholder="Nombre" required />
+              <input type="text" name="name" class="form-control" placeholder="Nombre"
+                {{#if config.isEdit}}value="{{productToEdit.name}}" {{/if}} required />
             </div>
             <div class="form-group inline">
-              <input type="number" name="price" class="form-control" placeholder="Precio unitario" required />
+              <input type="number" name="price" class="form-control" placeholder="Precio unitario"
+                {{#if config.isEdit}}value="{{productToEdit.price}}" {{/if}} required />
               <select name="unit" class="form-control">
-                <option value="" disabled>Unidad</option>
-                <option value="kg" selected>kg</option>
-                <option value="litro">litro</option>
+                <option value="" {{#unless config.isEdit}}selected{{/unless}}>Unidad</option>
+                <option value="kg" {{#if config.isKg}}selected{{/if}}>kg</option>
+                <option value="litro" {{#if config.isLt}}selected{{/if}}>litro</option>
               </select>
             </div>
             <div class="form-group">
-              <input type="number" name="stock" placeholder="Existencias" class="form-control" required>
+              <input type="number" name="stock" placeholder="Existencias" class="form-control"
+                {{#if config.isEdit}}value="{{productToEdit.stock}}" {{/if}} required>
             </div>
             <div class="form-group">
               <select name="category" id="category" class="form-control" required>
-                <option value="" disabled selected>Categoría</option>
-                <option value="frutas">Frutas</option>
-                <option value="vegetales">Vegetales</option>
-                <option value="hierbas">Hierbas</option>
-                <option value="carnes">Carnes</option>
-                <option value="mariscos">Mariscos</option>
-                <option value="lacteos">Lácteos</option>
-                <option value="otros">Otros</option>
+                <option value="" disabled {{#unless config.isEdit}}selected{{/unless}}>Categoría</option>
+                <option value="frutas" {{#if config.isFruit}}selected{{/if}}>Frutas</option>
+                <option value="vegetales" {{#if config.isVeggie}}selected{{/if}}>Vegetales</option>
+                <option value="hierbas" {{#if config.isHerb}}selected{{/if}}>Hierbas</option>
+                <option value="carnes" {{#if config.isMeat}}selected{{/if}}>Carnes</option>
+                <option value="mariscos" {{#if config.isSeafood}}selected{{/if}}>Mariscos</option>
+                <option value="lacteos" {{#if config.isDairy}}selected{{/if}}>Lácteos</option>
+                <option value="otros" {{#if config.isOther}}selected{{/if}}>Otros</option>
               </select>
             </div>
           </div>
         </div>
         <div class="form-group">
           <textarea name="description" cols="30" rows="10" class="form-control" placeholder="Descripción"
-            required></textarea>
+            required>{{#if config.isEdit}}{{productToEdit.description}}{{/if}}</textarea>
         </div>
-        <button type="submit" class="btn btn-color">Crear</button>
+        <a href="/perfil" class="btn btn-outline">Cancelar</a>
+        <button type="submit" class="btn btn-color">{{config.buttonText}}</button>
       </form>
     </div>
   </div>

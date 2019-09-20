@@ -1,8 +1,12 @@
 .product {
   margin-bottom: 1rem;
-  img {
+  > img {
+    height: calc(100vw / 2 - 2.25rem);
+    width: 100%;
+    object-fit: cover;
     margin-bottom: 1rem;
     display: block;
+    border-radius: 0.25rem;
   }
   h3 {
     font-size: 1rem;
@@ -28,6 +32,10 @@
 
 @media (min-width: 992px) {
   .product {
+    & > img {
+      height: calc(100vw / 4 - 5rem);
+      max-height: 210px;
+    }
     h3 {
       font-size: 1.25rem;
     }

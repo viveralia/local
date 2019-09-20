@@ -83,6 +83,8 @@ button {
     background-color: #ff9800;
     box-shadow: 0 4px 14px 0 rgba(255, 152, 0, 0.5);
     color: #fff; }
+  .btn.btn-outline {
+    border: 1px solid #eee; }
 
 img {
   max-width: 100%; }
@@ -118,7 +120,8 @@ hr {
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 9rem; }
   .g-2 {
-    grid-template-columns: 1fr 1fr 1fr 1fr; } }
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 4rem; } }
 
 /*****************************/
 /********** NAVBAR ***********/
@@ -277,6 +280,9 @@ textarea.form-control {
       .form-container .card header h1 {
         font-size: 1.35rem;
         margin-bottom: 0.375rem; }
+        .form-container .card header h1 span {
+          font-weight: normal;
+          color: var(--lightText); }
       .form-container .card header a {
         color: orange; }
     .form-container .card .terms {
@@ -348,9 +354,13 @@ form button {
 
 .product {
   margin-bottom: 1rem; }
-  .product img {
+  .product > img {
+    height: calc(100vw / 2 - 2.25rem);
+    width: 100%;
+    object-fit: cover;
     margin-bottom: 1rem;
-    display: block; }
+    display: block;
+    border-radius: 0.25rem; }
   .product h3 {
     font-size: 1rem;
     margin-bottom: 0.25rem;
@@ -367,6 +377,9 @@ form button {
       margin-right: 0.5rem; }
 
 @media (min-width: 992px) {
+  .product > img {
+    height: calc(100vw / 4 - 5rem);
+    max-height: 210px; }
   .product h3 {
     font-size: 1.25rem; }
   .product p {
@@ -553,6 +566,8 @@ form button {
   min-height: calc(100vh - 148px);
   padding-top: 60px;
   border-bottom: 1px solid #eee; }
+  .dashboard .product > img {
+    height: calc(82vw / 2 - 2rem); }
   .dashboard .heading {
     margin-bottom: 1rem; }
     .dashboard .heading h2 {
@@ -601,6 +616,8 @@ form button {
   .dashboard {
     min-height: calc(100vh - 64px);
     grid-template-columns: 20% 80%; }
+    .dashboard .product > img {
+      height: calc(80vw / 4 - 1rem); }
     .dashboard .heading {
       margin-bottom: 2rem; }
       .dashboard .heading h2 {

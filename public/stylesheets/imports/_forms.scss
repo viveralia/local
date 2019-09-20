@@ -44,6 +44,10 @@ textarea.form-control {
       h1 {
         font-size: 1.35rem;
         margin-bottom: 0.375rem;
+        span {
+          font-weight: normal;
+          color: var(--lightText);
+        }
       }
       a {
         color: orange;

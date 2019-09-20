@@ -98,6 +98,9 @@ button {
     box-shadow: 0 4px 14px 0 rgba(255, 152, 0, 0.5);
     color: #fff;
   }
+  &.btn-outline {
+    border: 1px solid #eee;
+  }
 }
 
 img {
@@ -144,5 +147,6 @@ hr {
   }
   .g-2 {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 4rem;
   }
 }
