@@ -15,6 +15,6 @@ router.get('/all', showAllProducts)
 router.get('/create', showNewProductForm)
 router.post('/create', uploadCloud.single('image'), catchErrors(createNewProduct))
 router.get('/edit/:productId', showEditProductForm)
-router.post('/edit/:productId', uploadCloud.single('image'), catchErrors(updateProduct))
+router.post('/product/edit/:productId', uploadCloud.single('image'), catchErrors(updateProduct))
 router.get('/delete/:productId', deleteProduct)
 module.exports = router
