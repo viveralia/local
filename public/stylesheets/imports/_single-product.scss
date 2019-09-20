@@ -1,7 +1,12 @@
 .single {
   margin-top: 60px;
+  & > img {
+    height: 80vw;
+    object-fit: cover;
+  }
   .g-1 {
     grid-gap: 1rem;
+    margin-bottom: 2rem;
     .heading {
       a {
         h2 {
@@ -9,6 +14,7 @@
           font-size: 1rem;
           margin-bottom: 0.5rem;
           font-weight: normal;
+          text-transform: capitalize;
         }
       }
       h1 {
@@ -72,13 +78,16 @@
     background: #f8f8f8;
     padding: 3rem 0;
     border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
   }
 }
 
 @media (min-width: 992px) {
   .single {
     margin-top: 5rem;
+    & > img {
+      height: initial;
+      border-radius: 0.25rem;
+    }
     .g-1 {
       grid-template-columns: 1fr 1fr;
       grid-gap: 6rem;

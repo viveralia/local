@@ -52,14 +52,23 @@
   scroll-snap-type: x mandatory;
   a {
     display: inline-block;
-    min-width: 180px;
-    width: calc(20% - 1.75rem);
+    min-width: 145px;
+    width: 30vw;
     margin-right: 1rem;
     &:first-child {
       margin-left: 1.5rem;
     }
     &:last-child {
       margin-right: 1.5rem;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .scroll {
+    a {
+      width: 15vw;
+      max-width: 190px;
     }
   }
 }

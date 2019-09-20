@@ -81,7 +81,7 @@
     grid-template-columns: 20% 80%;
     .product {
       & > img {
-        height: calc(80vw / 4 - 1rem);
+        height: calc(80vw / 4 - 5rem);
       }
     }
     .heading {

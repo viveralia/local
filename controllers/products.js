@@ -1,18 +1,51 @@
 const Product = require('../models/Product')
 const User = require('../models/User')
 
-exports.showAllproducts = (req, res) => {
-  // TODO: Render de productos de Mongo
-  res.render('products/all')
+exports.showAllproducts = async (req, res) => {
+  const fruitProducts = await Product.find({ category: 'frutas' })
+    .limit(5)
+    .sort({ updatedAt: -1 })
+  const vegetableProducts = await Product.find({ category: 'vegetales' })
+    .limit(5)
+    .sort({ updatedAt: -1 })
+  const herbProducts = await Product.find({ category: 'hierbas' })
+    .limit(5)
+    .sort({ updatedAt: -1 })
+  const meatProducts = await Product.find({ category: 'carnes' })
+    .limit(5)
+    .sort({ updatedAt: -1 })
+  const dairyProducts = await Product.find({ category: 'lacteos' })
+    .limit(5)
+    .sort({ updatedAt: -1 })
+  const otherProducts = await Product.find({ category: 'otros' })
+    .limit(5)
+    .sort({ updatedAt: -1 })
+  res.render('products/all', {
+    fruitProducts,
+    vegetableProducts,
+    herbProducts,
+    meatProducts,
+    dairyProducts,
+    otherProducts
+  })
 }
 
-exports.showSingleCategoryProd = (req, res) => {
-  // TODO: Render de productos de Mongo
-  res.render('products/category')
+exports.showSingleCategoryProd = async (req, res) => {
+  const { categoryName } = req.params
+  const productsInCategory = await Product.find({ category: categoryName })
+  const config = {
+    category: categoryName
+  }
+  console.log(config)
+  res.render('products/category', { config, productsInCategory })
 }
 
-exports.showSingleProduct = (req, res) => {
-  res.render('products/single')
+exports.showSingleProduct = async (req, res) => {
+  const { productId } = req.params
+  const currentProduct = await Product.findById(productId)
+  const productCat = currentProduct.category
+  const relatedProducts = await Product.find({ category: productCat }).limit(5)
+  res.render('products/single', { currentProduct, relatedProducts })
 }
 
 exports.showNewProductForm = (req, res) => {
@@ -71,7 +104,6 @@ exports.showUpdateProductForm = async (req, res) => {
     isVeggie: product.category === 'vegetales',
     isHerb: product.category === 'hierbas',
     isMeat: product.category === 'carnes',
-    isSeafood: product.category === 'mariscos',
     isDairy: product.category === 'lacteos',
     isOther: product.category === 'otros'
   }

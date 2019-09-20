@@ -1,12 +1,18 @@
 .all {
   margin-top: 61px;
   padding: 1.5rem 0;
+  .wrapped {
+    .wrapped {
+      max-width: 100%;
+    }
+  }
   .heading {
     margin-bottom: 1rem;
   }
   h1 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
+    text-transform: capitalize;
   }
   section {
     margin-bottom: 2rem;

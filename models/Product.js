@@ -14,7 +14,11 @@ const productSchema = new Schema(
     stock: Number,
     category: {
       type: String,
-      enum: ['frutas', 'vegetales', 'hierbas', 'carnes', 'mariscos', 'lacteos', 'otros']
+      enum: ['frutas', 'vegetales', 'hierbas', 'carnes', 'lacteos', 'otros']
+    },
+    producer: {
+      type: Schema.Types.ObjectId,
+      ref: 'User'
     }
   },
   {

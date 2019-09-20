@@ -3,39 +3,89 @@
     <h1>Todos los productos</h1>
     <p>Siempre frescos para ti</p>
   </div>
+
   <section>
     <div class="container wrapped heading">
-      <h2>Categoría</h2>
-      <a href="/productos/verduras">Ver más en esta categoría</a>
+      <h2>Frutas</h2>
+      <a href="/productos/frutas">Ver más en esta categoría</a>
     </div>
     <div class="scroll wrapped">
-      <!-- TODO: To be dynamically replaced with data from Mongo -->
-      <a href="/" class="product">
-        <img src="https://source.unsplash.com/leOh1CzRZVQ/800x800" alt="...">
-        <h3>Product</h3>
-        <p><span class="price">$500</span> <span class="unit">por kilo</span></p>
-      </a>
-      <a href="/" class="product">
-        <img src="https://source.unsplash.com/leOh1CzRZVQ/800x800" alt="...">
-        <h3>Product</h3>
-        <p><span class="price">$500</span> <span class="unit">por kilo</span></p>
-      </a>
-      <a href="/" class="product">
-        <img src="https://source.unsplash.com/leOh1CzRZVQ/800x800" alt="...">
-        <h3>Product</h3>
-        <p><span class="price">$500</span> <span class="unit">por kilo</span></p>
-      </a>
-      <a href="/" class="product">
-        <img src="https://source.unsplash.com/leOh1CzRZVQ/800x800" alt="...">
-        <h3>Lorem ipsum dolor sit amet</h3>
-        <p><span class="price">$500</span> <span class="unit">por kilo</span></p>
-      </a>
-      <a href="/" class="product">
-        <img src="https://source.unsplash.com/leOh1CzRZVQ/800x800" alt="...">
-        <h3>Product</h3>
-        <p><span class="price">$500</span> <span class="unit">por kilo</span></p>
-      </a>
-      {{!-- ENDS --}}
+      {{#each fruitProducts as |product|}}
+      {{> productCard product}}
+      {{else}}
+      <p class="wrapped container">Aún no hay productos en esta categoría</p>
+      {{/each}}
     </div>
   </section>
+
+  <section>
+    <div class="container wrapped heading">
+      <h2>Vegetales</h2>
+      <a href="/productos/vegetales">Ver más en esta categoría</a>
+    </div>
+    <div class="scroll wrapped">
+      {{#each vegetableProducts as |product|}}
+      {{> productCard product}}
+      {{else}}
+      <p class="wrapped container">Aún no hay productos en esta categoría</p>
+      {{/each}}
+    </div>
+  </section>
+
+  <section>
+    <div class="container wrapped heading">
+      <h2>Hierbas</h2>
+      <a href="/productos/hierbas">Ver más en esta categoría</a>
+    </div>
+    <div class="scroll wrapped">
+      {{#each herbProducts as |product|}}
+      {{> productCard product}}
+      {{else}}
+      <p class="wrapped container">Aún no hay productos en esta categoría</p>
+      {{/each}}
+    </div>
+  </section>
+
+  <section>
+    <div class="container wrapped heading">
+      <h2>Carnes</h2>
+      <a href="/productos/carnes">Ver más en esta categoría</a>
+    </div>
+    <div class="scroll wrapped">
+      {{#each meatProducts as |product|}}
+      {{> productCard product}}
+      {{else}}
+      <p class="wrapped container">Aún no hay productos en esta categoría</p>
+      {{/each}}
+    </div>
+  </section>
+
+  <section>
+    <div class="container wrapped heading">
+      <h2>Lácteos</h2>
+      <a href="/productos/lacteos">Ver más en esta categoría</a>
+    </div>
+    <div class="scroll wrapped">
+      {{#each dairyProducts as |product|}}
+      {{> productCard product}}
+      {{else}}
+      <p class="wrapped container">Aún no hay productos en esta categoría</p>
+      {{/each}}
+    </div>
+  </section>
+
+  <section>
+    <div class="container wrapped heading">
+      <h2>Otros</h2>
+      <a href="/productos/otros">Ver más en esta categoría</a>
+    </div>
+    <div class="scroll wrapped">
+      {{#each otherProducts as |product|}}
+      {{> productCard product}}
+      {{else}}
+      <p class="wrapped container">Aún no hay productos en esta categoría</p>
+      {{/each}}
+    </div>
+  </section>
+
 </div>
