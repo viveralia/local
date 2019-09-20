@@ -4,6 +4,11 @@
   min-height: calc(100vh - 148px);
   padding-top: 60px;
   border-bottom: 1px solid #eee;
+  .product {
+    & > img {
+      height: calc(82vw / 2 - 2rem);
+    }
+  }
   .heading {
     margin-bottom: 1rem;
     h2 {
@@ -74,6 +79,11 @@
   .dashboard {
     min-height: calc(100vh - 64px);
     grid-template-columns: 20% 80%;
+    .product {
+      & > img {
+        height: calc(80vw / 4 - 1rem);
+      }
+    }
     .heading {
       margin-bottom: 2rem;
       h2 {
