@@ -144,6 +144,6 @@ exports.updateUser = async (req, res) => {
     await User.findByIdAndUpdate(currentUser, updatedUser)
     res.redirect('/perfil')
   } catch (e) {
-    console.log(e)
+    console.log(e) // Logs the error
   }
 }

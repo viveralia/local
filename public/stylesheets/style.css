@@ -95,7 +95,21 @@ hr {
   hr:first-child {
     margin-top: 0; }
   hr:last-child {
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    border: none; }
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 148px);
+  text-align: center; }
+  .not-found h1 {
+    margin-bottom: 0.75rem; }
+  .not-found h2 {
+    margin-bottom: 2rem;
+    font-weight: normal; }
 
 /*****************************/
 /************ GRID ***********/

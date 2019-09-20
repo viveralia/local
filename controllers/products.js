@@ -36,7 +36,6 @@ exports.showSingleCategoryProd = async (req, res) => {
   const config = {
     category: categoryName
   }
-  console.log(config)
   res.render('products/category', { config, productsInCategory })
 }
 
